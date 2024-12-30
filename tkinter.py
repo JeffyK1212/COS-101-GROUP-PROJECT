@@ -1,1 +1,47 @@
 import tkinter as tk
+translations = {
+    "Italian": {
+        "ciao": "hello",
+        "grazie": "thank you",
+        "amore": "love",
+        "gatto": "cat",
+        "cane": "dog",
+        "buongiorno": "good morning",
+        "buonasera": "good evening",
+        "per favore": "please",
+        "scusa": "sorry",
+        "arrivederci": "goodbye",
+        "libro": "book",
+        "acqua": "water",
+        "pane": "bread",
+        "vino": "wine",
+        "sole": "sun",
+        "luna": "moon",
+        "mare": "sea",
+        "montagna": "mountain",
+        "città": "city",
+        "famiglia": "family"
+    },
+    "Spanish": {
+        "hola": "hello",
+        "gracias": "thank you",
+        "amor": "love",
+        "gato": "cat",
+        "perro": "dog",
+        "buenos días": "good morning",
+        "buenas tardes": "good afternoon/evening",
+        "por favor": "please",
+        "lo siento": "sorry",
+        "adiós": "goodbye",
+        "libro": "book",
+        "agua": "water",
+        "pan": "bread",
+        "vino": "wine",
+        "sol": "sun",
+        "luna": "moon",
+        "mar": "sea",
+        "montaña": "mountain",
+        "ciudad": "city",
+        "familia": "family"
+    }
+}
