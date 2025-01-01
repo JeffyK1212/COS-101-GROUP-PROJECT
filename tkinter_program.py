@@ -111,6 +111,15 @@ translations = {
         "école": "school"
     }
 }
+def translationWindow(language):
+    transWin = Toplevel(root)
+    transWin.title(f"{language} to English Translator")
+    input_entry = Entry(transWin)
+    input_entry.pack()
+    result_lbl = Label(transWin, font=("Helvetica",50))
+    result_lbl.pack()
+    transBtn = Button(transWin, text = "Translate")
+    transBtn.pack()
 
 root = Tk()
 root.title("Language Translator")
