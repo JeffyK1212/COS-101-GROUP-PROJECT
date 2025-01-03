@@ -1,5 +1,9 @@
+# Imported the tkinter module for creating the GUI
 from tkinter import *
-def translationFunction(language,word):
+
+# Function to handle language translation
+def translationFunction(language, word):
+    # Dictionary storing translations for multiple languages; each language has a dictionary of word-translation pairs
     translations = {
         "Italian": {
             "ciao": "hello",
@@ -112,50 +116,65 @@ def translationFunction(language,word):
             "école": "school"
         }
     }
+    # Returns the English translation of the word if found, otherwise returns "Word not found"
     return translations.get(language, {}).get(word, "Word not found")
-def translationWindow(language):
-    def createTranslate(language):
-        word = input_entry.get().lower()
-        translation = translationFunction(language,word)
-        result_lbl.config(text=translation)
 
+# Function to create a new window for translating words from the selected language
+def translationWindow(language):
+    # Nested function to process the translation when the button is clicked
+    def createTranslate(language):
+        word = input_entry.get().lower()  # Get the input word in lowercase
+        translation = translationFunction(language, word)  # Translate the word
+        result_lbl.config(text=translation)  # Update the result label with the translation
+
+    # Create a new top-level window
     transWin = Toplevel(root)
     transWin.title(f"{language} to English Translator")
+    
+    # Entry widget for user input
     input_entry = Entry(transWin)
     input_entry.pack()
-    result_lbl = Label(transWin, font=("Helvetica",50))
+    
+    # Label to display the translation result
+    result_lbl = Label(transWin, font=("Helvetica", 50))
     result_lbl.pack()
-    transBtn = Button(transWin, text = "Translate", command = lambda : createTranslate(language))
+    
+    # Button to trigger the translation process
+    transBtn = Button(transWin, text ="Translate", command=lambda: createTranslate(language))
     transBtn.pack()
 
+# Main application window
 root = Tk()
 root.title("Language Translator")
+root.geometry("400x300")  # Set the size of the window
 
-root.geometry("400x300")
-
+# Title label
 title_label = Label(root, text="Welcome to the Language Translator!", font=("Helvetica", 16), pady=10)
 title_label.pack()
 
+# Subtitle label
 subtitle_label = Label(root, text="Choose a language to proceed:", font=("Helvetica", 12), pady=10)
 subtitle_label.pack()
 
+# Frame to hold language selection buttons
 buttons_frame = Frame(root)
 buttons_frame.pack(pady=20)
 
-spanish_button = Button(buttons_frame, text="Spanish", font=("Helvetica", 12), width=12, command = lambda : translationWindow("Spanish"))
+# Buttons for selecting a language, each opening a translation window for the chosen language
+spanish_button = Button(buttons_frame, text="Spanish", font=("Helvetica", 12), width=12, command=lambda: translationWindow("Spanish"))
 spanish_button.grid(row=0, column=0, padx=10, pady=5)
 
-french_button = Button(buttons_frame, text="French", font=("Helvetica", 12), width=12, command = lambda : translationWindow("French"))
+french_button = Button(buttons_frame, text="French", font=("Helvetica", 12), width=12, command=lambda: translationWindow("French"))
 french_button.grid(row=0, column=1, padx=10, pady=5)
 
-german_button = Button(buttons_frame, text="German", font=("Helvetica", 12), width=12, command = lambda : translationWindow("German"))
+german_button = Button(buttons_frame, text="German", font=("Helvetica", 12), width=12, command=lambda: translationWindow("German"))
 german_button.grid(row=1, column=0, padx=10, pady=5)
 
-russian_button = Button(buttons_frame, text="Russian", font=("Helvetica", 12), width=12, command = lambda : translationWindow("Russian"))
+russian_button = Button(buttons_frame, text="Russian", font=("Helvetica", 12), width=12, command=lambda: translationWindow("Russian"))
 russian_button.grid(row=1, column=1, padx=10, pady=5)
 
-italian_button = Button(buttons_frame, text="Italian", font=("Helvetica", 12), width=12, command = lambda : translationWindow("Italian"))
+italian_button = Button(buttons_frame, text="Italian", font=("Helvetica", 12), width=12, command=lambda: translationWindow("Italian"))
 italian_button.grid(row=2, column=0, columnspan=2, pady=5)
 
-# Run the application
+# Run the application loop
 root.mainloop()
